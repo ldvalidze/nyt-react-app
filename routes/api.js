@@ -9,7 +9,7 @@ router.delete("/api/clear", headline_controllers.clearHeadlines);
 router.get("/api/headlines", headline_controllers.displayAllHeadlines);
 router.get("/api/headlines/saved", headline_controllers.displaySavedHeadlines);
 router.get("/api/headlines/:id", headline_controllers.displayOneHeadline);
-router.post("/api/headlines", headline_controllers.saveHeadline);
+router.post("/", headline_controllers.saveHeadline);
 
 
 //note routes
