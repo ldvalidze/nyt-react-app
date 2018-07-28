@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
+import SavedArticles from "./SavedArticles";
 import API from "../utils/API";
 import { Container } from 'reactstrap';
 
@@ -9,7 +10,8 @@ class SearchResultContainer extends Component {
     search: "",
     begin_date: "YYYYMMDD",
     end_date: "YYYYMMDD",
-    results: []
+    results: [],
+    savedResults: []
   };
 
   // When this component mounts, search the Giphy API for pictures of kittens
@@ -21,7 +23,7 @@ class SearchResultContainer extends Component {
     API.search(this.state.search, this.state.begin_date, this.state.end_date)
       .then(res => {
         const top5 = [];
-        for (let i = 0; i<5; i++) {
+        for (let i = 0; i < 5; i++) {
           top5.push(res.data.response.docs[i])
         }
         console.log(top5);
@@ -33,7 +35,7 @@ class SearchResultContainer extends Component {
 
   handleInputChange = event => {
     const { name, value } = event.target;
-    
+
     this.setState({
       [name]: value
     });
@@ -45,6 +47,20 @@ class SearchResultContainer extends Component {
     this.searchNYT(this.state.search, this.state.begin_date, this.state.end_date);
   };
 
+  searchSaved = () => {
+    API.displaySavedArticles()
+      .then(res => {
+        console.log(res);
+        this.setState({ savedResults: res.data })
+      }
+      )
+      .catch(err => console.log(err));
+  }
+
+  componentDidMount() {
+    this.searchSaved();
+  };
+
   render() {
     return (
       <Container>
@@ -54,6 +70,7 @@ class SearchResultContainer extends Component {
           handleInputChange={this.handleInputChange}
         />
         <ResultList results={this.state.results} />
+        <SavedArticles savedResults={this.state.savedResults} />
       </Container>
     );
   }

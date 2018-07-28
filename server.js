@@ -9,6 +9,7 @@ const app = express();
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Use body-parser for handling form submissions
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
 
@@ -37,7 +38,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/nytrea
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
+  useNewUrlParser: true
 });
 
 // Start the server

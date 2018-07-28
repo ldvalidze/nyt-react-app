@@ -5,7 +5,7 @@ import API from "../utils/API";
 const ResultList = props => {
   const handleArticleSave = (result) => {
     console.log('RESULT LIST RESULT: ' + JSON.stringify(result))
-    API.handleArticleSave({result})
+    API.handleArticleSave(result)
   }
 
   return (
@@ -16,7 +16,7 @@ const ResultList = props => {
           <Card>
             <CardBody>
               <CardTitle><a target="_blank" href={result.web_url}>{result.headline.main}</a></CardTitle>
-              <Button color="info" data-result={result} onClick={() => handleArticleSave(result)}>Save</Button>
+              <Button color="info" onClick={() => handleArticleSave(result)}>Save</Button>
             </CardBody>
           </Card>
         </Col>
