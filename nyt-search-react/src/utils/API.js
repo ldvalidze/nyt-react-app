@@ -14,6 +14,7 @@ export default {
   },
 
   handleArticleSave: function (result) {
+
     console.log('THIS IS AXIOS RESULT: ' + result.headline.main)
     return (axios({
       method: 'post',

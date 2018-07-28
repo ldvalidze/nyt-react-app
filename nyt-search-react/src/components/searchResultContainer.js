@@ -26,7 +26,6 @@ class SearchResultContainer extends Component {
         for (let i = 0; i < 5; i++) {
           top5.push(res.data.response.docs[i])
         }
-        console.log(top5);
         this.setState({ results: top5 })
       }
       )
@@ -50,7 +49,6 @@ class SearchResultContainer extends Component {
   searchSaved = () => {
     API.displaySavedArticles()
       .then(res => {
-        console.log(res);
         this.setState({ savedResults: res.data })
       }
       )

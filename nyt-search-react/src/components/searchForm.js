@@ -1,10 +1,12 @@
 import React from "react";
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const SearchForm = props => (
-  <form>
-    <div className="form-group">
-      <label htmlFor="search">Search:</label>
-      <input
+  <Form className="wrapper">
+  <h2>Search</h2>
+    <FormGroup>
+      <Label htmlFor="search">Topic:</Label>
+      <Input
         onChange={props.handleInputChange}
         value={props.search}
         name="search"
@@ -13,32 +15,39 @@ const SearchForm = props => (
         placeholder="Enter Topic"
         id="search"
       />
-    <input
+      </FormGroup>
+      <FormGroup>
+    <Label htmlFor="begin_date">Begin Date</Label>
+    <Input
         onChange={props.handleInputChange}
         value={props.begin_date}
         name="begin_date"
         type="text"
         className="form-control"
-        placeholder="Begin Date: YYYYMMDD"
+        placeholder="Format: YYYYMMDD"
         id="begin_date"
       />
-      <input
+      </FormGroup>
+      <FormGroup>
+      <Label htmlFor="end_date">End Date</Label>
+      <Input
         onChange={props.handleInputChange}
         value={props.end_date}
         name="end_date"
         type="text"
         className="form-control"
-        placeholder="End Date"
+        placeholder="Format: YYYYMMDD"
         id="end_date"
       />
-      <button
+      </FormGroup>
+      <Button
         onClick={props.handleFormSubmit}
-        className="btn btn-primary mt-3"
+        color="info"
       >
         Search
-      </button>
-    </div>
-  </form>
+      </Button>
+    
+  </Form>
 );
 
 export default SearchForm;

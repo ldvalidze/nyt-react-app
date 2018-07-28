@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import API from "../utils/API";
-import { Row, Col, Button } from 'reactstrap';
+import { Button, Table } from 'reactstrap';
 
 const SavedArticles = (props) => {
 
@@ -8,15 +8,35 @@ const SavedArticles = (props) => {
         console.log('handleArticleDelete id: ' + id);
         API.handleArticleDelete(id)
       }
+
         return (
-            <Row>
+            <div className="wrapper">
+            <h2>Saved Articles</h2>
+            <Table className="wrap-saved">
+            <thead>
+                <tr>
+                    <th>Article Name</th>
+                    <th>Date Saved</th>
+                    <th>Delete Item(s)</th>
+                    </tr>
+            </thead>
+            <tbody>
             {props.savedResults.map(item => ( 
-                <Col key={item._id}>
+                <tr key={item._id}>
+                <td>
                 {item.title}
+                </td>
+                <td>
+                    {new Date(item.date_added).toUTCString()}
+                </td>
+                <td lg="2">
                 <Button onClick={() => handleArticleDelete(item._id)} color="danger">Remove</Button>
-                </Col>   
+                </td>
+                </tr>   
             )) }
-            </Row>
+            </tbody>
+            </Table>
+            </div>
         )
 }
 
