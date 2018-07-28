@@ -1,1 +1,1 @@
-# nyt-react-app
+# nyt-react
