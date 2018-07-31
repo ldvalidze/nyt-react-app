@@ -7,6 +7,7 @@ const SavedArticles = (props) => {
     const handleArticleDelete = (id) => {
         console.log('handleArticleDelete id: ' + id);
         API.handleArticleDelete(id)
+        props.searchSaved();
       }
 
         return (

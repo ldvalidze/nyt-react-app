@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import SearchResultContainer from "./components/SearchResultContainer.js";
+import SearchResultContainer from "./components/searchResultContainer.js";
 
 const App = () =>
     <div>

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
+  "homepage": "https://pure-escarpment-61275.herokuapp.com/",
   "dependencies": {
     "concurrently": "^3.6.0",
     "react": "^16.4.1",

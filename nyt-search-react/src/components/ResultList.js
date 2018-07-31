@@ -5,6 +5,7 @@ import API from "../utils/API";
 const ResultList = props => {
   const handleArticleSave = (result) => {
     API.handleArticleSave(result)
+    props.searchSaved();
   }
 
   return (

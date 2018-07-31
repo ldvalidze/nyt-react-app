@@ -42,7 +42,7 @@ const SearchForm = props => (
       </FormGroup>
       <Button
         onClick={props.handleFormSubmit}
-        color="info"
+        color="primary"
       >
         Search
       </Button>

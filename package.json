@@ -1,16 +1,20 @@
 {
   "name": "nyt-react",
   "version": "1.0.0",
+  "engines": {
+    "node": "9.11.1"
+  },
   "description": "react NYT app",
   "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "predeploy": "yarn build",
+    "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'nyt-search-react/*'\" \"npm run nyt-search-react\"",
-    "nyt-search-react": "cd nyt-search-react && npm run start",
+    "start:dev": "concurrently \"nodemon --ignore 'nyt-search-react/*'\" \"yarn nyt-search-react\"",
+    "nyt-search-react": "cd nyt-search-react && yarn start",
     "install": "cd nyt-search-react && yarn install",
-    "build": "cd nyt-search-react && npm run build",
-    "heroku-postbuild": "npm run build"
+    "build": "cd nyt-search-react && yarn build",
+    "heroku-postbuild": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -22,22 +26,22 @@
   "bugs": {
     "url": "https://github.com/geochanto/nyt-react/issues"
   },
-  "homepage": "https://github.com/geochanto/nyt-react#readme",
+  "homepage": "https://pure-escarpment-61275.herokuapp.com/",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.2",
-    "cheerio": "^1.0.0-rc.2",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "concurrently": "^3.6.0",
     "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
+    "if-env": "^1.0.4",
     "mongoose": "^5.2.0",
     "morgan": "^1.9.0",
+    "nodemon": "^1.18.3",
     "reactstrap": "^6.3.0",
     "request": "^2.87.0"
   },
   "devDependencies": {
-    "concurrently": "^3.6.0",
-    "nodemon": "^1.11.0"
+    "concurrently": "^3.6.0"
   }
 }

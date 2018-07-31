@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === "production") {
 
 else {
 app.use(express.static("public"));
+
 }
 
 // require('./routes')(app);
